@@ -1,7 +1,7 @@
 from socket import *
 import sys
 
-sname="10.10.64.179"
+sname="127.0.0.1"
 sport=8000
 
 csock=socket(AF_INET,SOCK_STREAM)

@@ -3,7 +3,7 @@ import subprocess
 from socket import *
 
 
-sname="10.10.64.179"
+sname="127.0.0.1"
 sport=8000
 
 ssocket=socket(AF_INET,SOCK_STREAM)
