@@ -37,7 +37,8 @@ while cmd!="exit":
 
     cmd=input("Enter another UNIX command.Enter 'exit' to close the connection: ")
     if cmd=="exit":
-        break
+        csock.close()
+        sys.exit()
 csock.close()
 
 if(cmd=="exit"):
