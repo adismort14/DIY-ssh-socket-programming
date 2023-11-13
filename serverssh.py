@@ -4,7 +4,7 @@ from socket import *
 
 
 sname="10.10.64.179"
-sport=8080
+sport=8000
 
 ssocket=socket(AF_INET,SOCK_STREAM)
 ssocket.bind((sname,sport))
@@ -36,8 +36,20 @@ while(1):
 
         if(cmd=="exit"):
             break
-        result = subprocess.run([cmd], stdout=subprocess.PIPE, text=True)
-        connsocket.send(result.stdout.encode())
+        if(cmd[0:2]=='cd'):
+            folder=cmd[cmd.index(" ")+1:]
+            if(folder==".."):
+                os.chdir("..")
+            else:
+                os.chdir(os.path.join(os.getcwd(),folder))
+            print_result = subprocess.run(['pwd'], shell=True, stdout=subprocess.PIPE, text=True)
+            connsocket.send((f'Changed directories. Currently at {print_result.stdout}').encode())
+        elif(cmd[0:5]=='mkdir'):
+            result = subprocess.run([cmd], shell=True, stdout=subprocess.PIPE, text=True)
+            connsocket.send(f'Directory {cmd[6:]} has been created.'.encode())
+        else:
+            result = subprocess.run([cmd], shell=True, stdout=subprocess.PIPE, text=True)
+            connsocket.send(result.stdout.encode())
 
     connsocket.close()
 ssocket.close()
