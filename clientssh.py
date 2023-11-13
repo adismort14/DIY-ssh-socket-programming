@@ -26,6 +26,8 @@ while(True):
     else:
         print("The given username does not exist, please try again.")
 
+welcome_message=csock.recv(2048)
+print(welcome_message.decode())
 cmd=input("Enter any UNIX command (ls,pwd,cd,echo etc). Enter 'exit' to close the connection: ")
 
 while cmd!="exit":
