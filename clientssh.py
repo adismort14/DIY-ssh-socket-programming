@@ -11,7 +11,7 @@ while(True):
     usrname=input("Enter the server username: ")
     csock.send(usrname.encode())
     susr_res=csock.recv(2048)
-    print(susr_res)
+
     if(susr_res.decode()=='1'):
         while(True):
             passwd=input("Enter the server password: ")
@@ -38,9 +38,10 @@ while cmd!="exit":
     cmd=input("Enter another UNIX command.Enter 'exit' to close the connection: ")
     if cmd=="exit":
         csock.close()
+        print("Disconnected from the server successfully.")
         sys.exit()
-csock.close()
 
 if(cmd=="exit"):
     csock.close()
+    print("Disconnected from the server successfully.")
     sys.exit()

@@ -66,6 +66,7 @@ while(1):
         cmd=cl_cmd.decode()
 
         if(cmd=="exit"):
+            connsocket.close()
             break
         if(cmd[0:2]=='cd'):
             folder=cmd[cmd.index(" ")+1:]
