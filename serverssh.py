@@ -38,9 +38,6 @@ while(1):
     process_list = psutil.process_iter()
     num_processes = len(list(process_list))
 
-    # hostname = socket.gethostname()
-    # ipv4_address = socket.gethostbyname(hostname)
-
     current_datetime = datetime.now()
     formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
