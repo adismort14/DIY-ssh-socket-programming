@@ -1,4 +1,4 @@
-# ssh-socket-programming
+# Part 1
 
 This is my code for the first part of the assignment 3 of CS301 course (Computer Networks). This is the implementation of `ssh` utilising native sockets provided by Python.  
 This project requires `python>=3.0` and works using all the native packages only except the `psutils` package just for the Welcome Message to the client. 

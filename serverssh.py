@@ -14,9 +14,11 @@ ssocket.listen(10)
 
 username="server"
 password="1234"
+last_login_list=[]
 
 while(1):
     connsocket,addr=ssocket.accept()
+    print(addr)
     while(True):
         cl_usrname=connsocket.recv(2048)
         if(cl_usrname.decode()==username):
@@ -42,8 +44,8 @@ while(1):
     formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
 
     first=False
-    last_login_list=[]
-    last_login_list.append(formatted_datetime)
+    
+    last_login_list[cl_usrname].append(formatted_datetime)
     if(len(last_login_list)==1):
         last_login="This is your first time logging into this host."
     else:
