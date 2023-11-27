@@ -45,7 +45,7 @@ while(1):
 
     first=False
     
-    last_login_list[cl_usrname].append(formatted_datetime)
+    last_login_list[cl_usrname.decode()].append(formatted_datetime)
     if(len(last_login_list)==1):
         last_login="This is your first time logging into this host."
     else:
